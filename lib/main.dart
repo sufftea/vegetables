@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vegitables/screens/vegi_list_screen/vegi_list_screen.dart';
+import 'package:vegetables/screens/vegi_list_screen/vege_list_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,7 +12,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark(),
-      home: const VegiListScreen(),
+      home: const VegeListScreen(),
     );
   }
 }

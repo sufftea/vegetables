@@ -5,24 +5,24 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vegitables/data/vegitable_data.dart';
-import 'package:vegitables/screens/details_screen/details_screen.dart';
+import 'package:vegetables/data/vegetable_data.dart';
+import 'package:vegetables/screens/details_screen/details_screen.dart';
 
-class VegiCard extends StatefulWidget {
-  const VegiCard({
+class VegeCard extends StatefulWidget {
+  const VegeCard({
     required this.progress,
-    required this.vegitable,
+    required this.vegetable,
     super.key,
   });
 
   final double progress;
-  final VegitableData vegitable;
+  final VegetableData vegetable;
 
   @override
-  State<VegiCard> createState() => _VegiCardState();
+  State<VegeCard> createState() => _VegeCardState();
 }
 
-class _VegiCardState extends State<VegiCard> with TickerProviderStateMixin {
+class _VegeCardState extends State<VegeCard> with TickerProviderStateMixin {
   late final tapAnimCtrl = AnimationController(
     duration: const Duration(milliseconds: 100),
     vsync: this,
@@ -42,7 +42,7 @@ class _VegiCardState extends State<VegiCard> with TickerProviderStateMixin {
       onTapUp: (details) {
         tapAnimCtrl.animateBack(0);
 
-        Navigator.of(context).push(DetailsScreen.createRoute(widget.vegitable));
+        Navigator.of(context).push(DetailsScreen.createRoute(widget.vegetable));
       },
       child: AnimatedBuilder(
         animation: tapAnimCtrl,
@@ -67,8 +67,8 @@ class _VegiCardState extends State<VegiCard> with TickerProviderStateMixin {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color.lerp(widget.vegitable.color, Colors.white, 0.3)!,
-                  Color.lerp(widget.vegitable.color, Colors.white, 0.5)!,
+                  Color.lerp(widget.vegetable.color, Colors.white, 0.3)!,
+                  Color.lerp(widget.vegetable.color, Colors.white, 0.5)!,
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -181,7 +181,7 @@ class _VegiCardState extends State<VegiCard> with TickerProviderStateMixin {
             bottom: 0,
             right: -60,
             child: Hero(
-              tag: widget.vegitable,
+              tag: widget.vegetable,
               flightShuttleBuilder: (
                 flightContext,
                 animation,
@@ -202,7 +202,7 @@ class _VegiCardState extends State<VegiCard> with TickerProviderStateMixin {
                   },
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
-                      widget.vegitable.color,
+                      widget.vegetable.color,
                       BlendMode.modulate,
                     ),
                     child: Image.asset(
@@ -218,7 +218,7 @@ class _VegiCardState extends State<VegiCard> with TickerProviderStateMixin {
                 angle: lerpDouble(0, pi / 3, widget.progress)!,
                 child: ColorFiltered(
                   colorFilter: ColorFilter.mode(
-                    widget.vegitable.color,
+                    widget.vegetable.color,
                     BlendMode.modulate,
                   ),
                   child: Image.asset(

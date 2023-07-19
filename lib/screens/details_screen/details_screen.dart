@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:vegitables/data/vegitable_data.dart';
+import 'package:vegetables/data/vegetable_data.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({
-    required this.vegitable,
+    required this.vegetable,
     required this.transitionAnim,
     super.key,
   });
 
-  final VegitableData vegitable;
+  final VegetableData vegetable;
   final Animation<double> transitionAnim;
 
-  static PageRoute createRoute(VegitableData vegitable) {
+  static PageRoute createRoute(VegetableData vegetable) {
     return PageRouteBuilder(
       transitionDuration: const Duration(milliseconds: 800),
       reverseTransitionDuration: const Duration(milliseconds:800),
@@ -20,7 +20,7 @@ class DetailsScreen extends StatelessWidget {
       },
       pageBuilder: (context, animation, secondaryAnimation) {
         return DetailsScreen(
-          vegitable: vegitable,
+          vegetable: vegetable,
           transitionAnim: animation,
         );
       },
@@ -50,10 +50,10 @@ class DetailsScreen extends StatelessWidget {
           right: 0,
           child: Center(
             child: Hero(
-              tag: vegitable,
+              tag: vegetable,
               child: ColorFiltered(
                 colorFilter: ColorFilter.mode(
-                  vegitable.color,
+                  vegetable.color,
                   BlendMode.modulate,
                 ),
                 child: Image.asset(

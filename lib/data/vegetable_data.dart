@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-class VegitableData {
-  const VegitableData({
+class VegetableData {
+  const VegetableData({
     required this.color,
   });
 

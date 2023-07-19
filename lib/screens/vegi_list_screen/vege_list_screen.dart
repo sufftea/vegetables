@@ -4,26 +4,26 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vegitables/data/vegitable_data.dart';
-import 'package:vegitables/screens/vegi_list_screen/widgets/vegi_card.dart';
+import 'package:vegetables/data/vegetable_data.dart';
+import 'package:vegetables/screens/vegi_list_screen/widgets/vege_card.dart';
 
 const _viewportFraction = 0.8;
 final _items = [
-  VegitableData(color: Colors.orange),
-  VegitableData(color: Colors.green),
-  VegitableData(color: Colors.purple),
-  VegitableData(color: Colors.blue),
-  VegitableData(color: Colors.pink),
+  VegetableData(color: Colors.orange),
+  VegetableData(color: Colors.green),
+  VegetableData(color: Colors.purple),
+  VegetableData(color: Colors.blue),
+  VegetableData(color: Colors.pink),
 ];
 
-final class VegiListScreen extends StatefulWidget {
-  const VegiListScreen({super.key});
+class VegeListScreen extends StatefulWidget {
+  const VegeListScreen({super.key});
 
   @override
-  State<VegiListScreen> createState() => _VegiListScreenState();
+  State<VegeListScreen> createState() => _VegeListScreenState();
 }
 
-class _VegiListScreenState extends State<VegiListScreen> {
+class _VegeListScreenState extends State<VegeListScreen> {
   final controller = PageController(
     viewportFraction: _viewportFraction,
   );
@@ -70,9 +70,9 @@ class _VegiListScreenState extends State<VegiListScreen> {
                             : 0.0;
 
                         p = (index - p) * 0.5 + 0.5;
-                        return VegiCard(
+                        return VegeCard(
                           progress: p,
-                          vegitable: _items[index],
+                          vegetable: _items[index],
                         );
                       },
                     ),
